@@ -1,17 +1,21 @@
 <template>
-  <div id="app">
+
   <button @click="count++">{{ count }}</button>
-</div>
+  <h2>Hello {{ name }}</h2>
+  <h3 v-text="msg"></h3>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
-  name: 'App',
+ 
   data() {
     return {
-      count: 0
+      count: 0,
+      name: "Derrick",
+      msg: "Nmeiva"
     }
   }
 }

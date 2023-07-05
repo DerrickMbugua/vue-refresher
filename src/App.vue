@@ -3,7 +3,20 @@
   <button @click="count++">{{ count }}</button>
   <h2>Hello {{ name }}</h2>
   <h3 v-text="msg"></h3>
-
+  <div v-html="text"></div>
+  <div v-bind:id="headingId">Heading</div>
+  <button :disabled="isDisabled">Bind</button>
+  <p class="underline">Underline</p>
+  <p class="underline" v-bind:class="status">Status 2</p>
+  <p v-bind:class="isPromoted && 'promoted'">Status 3</p>
+  <p :class="isColor ? 'sold-out' : 'new'">Sold out?</p>
+  <p :class="['new', 'promoted']">Newly promoted</p>
+  <p :class="[isPromoted && 'promoted', isColor ? 'sold-out' : 'new']">Array conditional movie</p>
+  <p :class="{
+    promoted: isPromoted,
+    'sold-out': isColor,
+    new: !isColor
+  }">Object conditional movie</p>
 </template>
 
 <script>
@@ -15,7 +28,13 @@ export default {
     return {
       count: 0,
       name: "Derrick",
-      msg: "Nmeiva"
+      msg: "Nmeiva",
+      text: "<p>Testing</p>",
+      headingId: "heading",
+      isDisabled: false,
+      status: 'danger',
+      isPromoted: true,
+      isColor: true
     }
   }
 }
@@ -29,5 +48,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.underline{
+  text-decoration: underline;
+}
+.promoted{
+  font-style: italic;
+}
+.new{
+  color: blue;
+}
+.sold-out{
+  color: red;
 }
 </style>

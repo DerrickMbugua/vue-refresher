@@ -17,6 +17,14 @@
     'sold-out': isColor,
     new: !isColor
   }">Object conditional movie</p>
+  <p :style="{
+    color: highlightColor,
+    fontSize: headerSize + 'px',
+    padding: '10px'
+  }">Style Binding</p>
+
+<p :style="headerStyleObject">Object Style Binding</p>
+<p :style="[headerStyleObject, headerSpacing]">Array Object Style Binding</p>
 </template>
 
 <script>
@@ -34,7 +42,17 @@ export default {
       isDisabled: false,
       status: 'danger',
       isPromoted: true,
-      isColor: true
+      isColor: true,
+      highlightColor: 'orange',
+      headerSize: 50,
+      headerStyleObject: {
+        color: 'orange',
+        fontSize: '50px'
+        
+      },
+      headerSpacing: {
+        padding: '10px'
+      }
     }
   }
 }

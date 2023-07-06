@@ -1,30 +1,17 @@
 <template>
-
-  <button @click="count++">{{ count }}</button>
-  <h2>Hello {{ name }}</h2>
-  <h3 v-text="msg"></h3>
-  <div v-html="text"></div>
-  <div v-bind:id="headingId">Heading</div>
-  <button :disabled="isDisabled">Bind</button>
-  <p class="underline">Underline</p>
-  <p class="underline" v-bind:class="status">Status 2</p>
-  <p v-bind:class="isPromoted && 'promoted'">Status 3</p>
-  <p :class="isColor ? 'sold-out' : 'new'">Sold out?</p>
-  <p :class="['new', 'promoted']">Newly promoted</p>
-  <p :class="[isPromoted && 'promoted', isColor ? 'sold-out' : 'new']">Array conditional movie</p>
-  <p :class="{
-    promoted: isPromoted,
-    'sold-out': isColor,
-    new: !isColor
-  }">Object conditional movie</p>
-  <p :style="{
-    color: highlightColor,
-    fontSize: headerSize + 'px',
-    padding: '10px'
-  }">Style Binding</p>
-
-<p :style="headerStyleObject">Object Style Binding</p>
-<p :style="[headerStyleObject, headerSpacing]">Array Object Style Binding</p>
+<h1 :style="{
+  color: headerColor
+}">Conditional Rendering</h1>
+<h2 :style="headerStyling">V-if and V-else</h2>
+<p v-if="count === 0">The number is zero</p>
+<p v-else-if="count < 0">The number is negative</p>
+<p v-else-if="count > 0">The number is positive</p>
+<p v-else>Not a number</p>
+<template v-if="display === true">
+<p>One</p>
+<p>Two</p>
+<p>Three</p>
+</template>
 </template>
 
 <script>
@@ -34,25 +21,14 @@ export default {
  
   data() {
     return {
-      count: 0,
-      name: "Derrick",
-      msg: "Nmeiva",
-      text: "<p>Testing</p>",
-      headingId: "heading",
-      isDisabled: false,
-      status: 'danger',
-      isPromoted: true,
-      isColor: true,
-      highlightColor: 'orange',
-      headerSize: 50,
-      headerStyleObject: {
-        color: 'orange',
-        fontSize: '50px'
+      count: 'h',
+      headerColor: 'orange',
+      headerStyling: {
+        color: 'black',
+        padding: '15px',
         
       },
-      headerSpacing: {
-        padding: '10px'
-      }
+      display: true
     }
   }
 }
@@ -67,16 +43,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.underline{
-  text-decoration: underline;
-}
-.promoted{
-  font-style: italic;
-}
-.new{
-  color: blue;
-}
-.sold-out{
-  color: red;
-}
+
 </style>

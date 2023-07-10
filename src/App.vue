@@ -1,17 +1,11 @@
 <template>
-<h1 :style="headerStyling">List Rendering</h1>
-<p v-for="(customer, index) in customers" :key="customer">{{ index + 1 }} {{ customer }}</p>
-<p v-for="item in clients" :key="item.name">{{ item.name }} {{ item.department }}</p>
-<template v-for="dev in developers" :key="dev">
-  <p>{{ dev.name }}</p>
-  <p v-for="lang in dev.languages" :key="lang">{{ lang }}</p>
-</template>
-<p v-for="detail in myInfo" :key="detail">{{ detail }}</p>
-<template v-for="name in customers" :key="name">
-<p v-if="name === 'Bruce'">{{ name }}</p>
-<p v-show="name === 'Bruce'">{{ name }}</p>
-</template>
-
+<h1 :style="headerStyling">Methods</h1>
+<p>{{ add(2,3,4) }}</p>
+<p>{{ multipy(5) }}</p>
+<p>{{ name }}</p>
+<button v-on:click="changeName">Change name</button>
+<p>{{ count }}</p>
+<button v-on:click="increment">Increment counter</button>
 </template>
 
 <script>
@@ -23,32 +17,25 @@ export default {
     return {
       headerStyling: {
         color: 'blue',
-        fontSize: '30px',
-        padding: '5px'
+        padding: '20px'
       },
-      customers: ['Bruce', 'Jane', 'James', 'Mary'],
-      clients: [
-        {name: 'Derrick', department: 'G'},
-        {name: 'Mbugua', department: 'G'},
-        {name: 'Mwema', department: 'G'},
-        {name: 'Sam', department: 'G'},
-      ],
-      developers: [
-        {
-          name: 'Sparta',
-          languages: ['php','css']
-        },
-        {
-          name: 'Meg',
-          languages: ['node', 'flutter']
-        }
-      ],
-      myInfo: {
-        name: 'D Mwema',
-        channel: 'dev',
-        language: 'Vue 3'
-      },
-      display: true
+      base: 4,
+      name: 'Huncho',
+      count: 0
+    }
+  },
+  methods: {
+    add(a,b,c) {
+      return a+b+c
+    },
+    multipy(num){
+      return num * this.base
+    },
+    increment(){
+      this.count++
+    },
+    changeName(){
+      this.name = 'Sparta'
     }
   }
 }

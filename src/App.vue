@@ -9,7 +9,9 @@
 <p v-for="detail in myInfo" :key="detail">{{ detail }}</p>
 <template v-for="name in customers" :key="name">
 <p v-if="name === 'Bruce'">{{ name }}</p>
+<p v-show="name === 'Bruce'">{{ name }}</p>
 </template>
+
 </template>
 
 <script>
@@ -45,7 +47,8 @@ export default {
         name: 'D Mwema',
         channel: 'dev',
         language: 'Vue 3'
-      }
+      },
+      display: true
     }
   }
 }

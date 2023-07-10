@@ -3,7 +3,7 @@
 <p>{{ add(2,3,4) }}</p>
 <p>{{ multipy(5) }}</p>
 <p>{{ name }}</p>
-<button v-on:click="changeName">Change name</button>
+<button @click="changeName($event), increment($event)">Change name</button>
 <p>{{ count }}</p>
 <button v-on:click="increment">Increment counter</button>
 </template>

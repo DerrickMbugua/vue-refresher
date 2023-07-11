@@ -1,85 +1,25 @@
 <template>
-  <h1 :style="headerStyling">Form Handling</h1>
-  <form @submit.prevent="formHandling">
-    <p>{{ formValues.name }}</p>
-    <p>{{ formValues.message }}</p>
-    <p>{{ formValues.selected }}</p>
-    <p>{{ formValues.multiple }}</p>
-    <div>
-      <label for="name">Name</label>
-      <input type="text" v-model.trim.lazy="formValues.name" />
-    </div>
-    <div>
-      <label for="message">Message</label>
-      <textarea
-        v-model="formValues.message"
-        placeholder="add multiple lines"
-      ></textarea>
-    </div>
-    <div>
-      <label for="message">Select</label>
-      <select v-model="formValues.selected">
-        <option disabled value="">Please select one</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
-      </select>
-    </div>
-    <div>
-      <label for="message">Select Multiple</label>
-      <select multiple v-model="formValues.multiple">
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
-      </select>
-    </div>
-    <div>
-      <input type="checkbox" id="checkbox" v-model="formValues.checked" />
-      <label for="checkbox">{{ formValues.checked }}</label>
-    </div>
-    <div>Picked: {{ formValues.picked }}</div>
-
-    <div>
-      <input type="radio" id="one" value="One" v-model="formValues.picked" />
-      <label for="one">One</label>
-
-      <input type="radio" id="two" value="Two" v-model="formValues.picked" />
-      <label for="two">Two</label>
-    </div>
-
-    <div>
-      <label for="age">Age</label>
-      <input @keyup.enter="formHandling" type="number" id="age" v-model.number="formValues.age" />
-    </div>
-
-    <!-- <div>
-      <button>Submit</button>
-    </div> -->
-  </form>
+  <h1 :style="headerStyling">Bonus Directives</h1>
+  <p v-once>{{ name }}</p>
+  <button @click="changeName">Change Name</button>
+  <p v-pre>{{ name }}</p>
 </template>
 
 <script>
 export default {
+  name: "App",
   data() {
     return {
       headerStyling: {
         color: "blue",
         fontSize: "30px",
       },
-      formValues: {
-        name: "",
-        message: "",
-        selected: "",
-        multiple: [],
-        checked: "",
-        picked: "",
-        age: null,
-      },
+      name: "Derrick",
     };
   },
   methods: {
-    formHandling() {
-      console.log("Form Values", this.formValues);
+    changeName() {
+      this.name = "Sparta";
     },
   },
 };

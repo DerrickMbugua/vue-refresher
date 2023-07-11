@@ -1,13 +1,13 @@
 <template>
   <h1 :style="headerStyling">Form Handling</h1>
-  <form @submit="formHandling">
+  <form @submit.prevent="formHandling">
     <p>{{ formValues.name }}</p>
     <p>{{ formValues.message }}</p>
     <p>{{ formValues.selected }}</p>
     <p>{{ formValues.multiple }}</p>
     <div>
       <label for="name">Name</label>
-      <input type="text" v-model="formValues.name" />
+      <input type="text" v-model.trim.lazy="formValues.name" />
     </div>
     <div>
       <label for="message">Message</label>
@@ -39,14 +39,22 @@
     </div>
     <div>Picked: {{ formValues.picked }}</div>
 
-    <input type="radio" id="one" value="One" v-model="formValues.picked" />
-    <label for="one">One</label>
-
-    <input type="radio" id="two" value="Two" v-model="formValues.picked" />
-    <label for="two">Two</label>
     <div>
-      <button>Submit</button>
+      <input type="radio" id="one" value="One" v-model="formValues.picked" />
+      <label for="one">One</label>
+
+      <input type="radio" id="two" value="Two" v-model="formValues.picked" />
+      <label for="two">Two</label>
     </div>
+
+    <div>
+      <label for="age">Age</label>
+      <input @keyup.enter="formHandling" type="number" id="age" v-model.number="formValues.age" />
+    </div>
+
+    <!-- <div>
+      <button>Submit</button>
+    </div> -->
   </form>
 </template>
 
@@ -63,16 +71,16 @@ export default {
         message: "",
         selected: "",
         multiple: [],
-        checked: '',
-        picked: ''
+        checked: "",
+        picked: "",
+        age: null,
       },
     };
   },
   methods: {
-    formHandling(event){
-      event.preventDefault()
-      console.log('Form Values', this.formValues)
-    }
+    formHandling() {
+      console.log("Form Values", this.formValues);
+    },
   },
 };
 </script>

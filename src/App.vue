@@ -1,6 +1,6 @@
 <template>
   <h1 :style="headerStyling">Form Handling</h1>
-  <form>
+  <form @submit="formHandling">
     <p>{{ formValues.name }}</p>
     <p>{{ formValues.message }}</p>
     <p>{{ formValues.selected }}</p>
@@ -33,6 +33,20 @@
         <option value="C">C</option>
       </select>
     </div>
+    <div>
+      <input type="checkbox" id="checkbox" v-model="formValues.checked" />
+      <label for="checkbox">{{ formValues.checked }}</label>
+    </div>
+    <div>Picked: {{ formValues.picked }}</div>
+
+    <input type="radio" id="one" value="One" v-model="formValues.picked" />
+    <label for="one">One</label>
+
+    <input type="radio" id="two" value="Two" v-model="formValues.picked" />
+    <label for="two">Two</label>
+    <div>
+      <button>Submit</button>
+    </div>
   </form>
 </template>
 
@@ -49,10 +63,17 @@ export default {
         message: "",
         selected: "",
         multiple: [],
+        checked: '',
+        picked: ''
       },
     };
   },
-  methods: {},
+  methods: {
+    formHandling(event){
+      event.preventDefault()
+      console.log('Form Values', this.formValues)
+    }
+  },
 };
 </script>
 

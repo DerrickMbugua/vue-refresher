@@ -1,8 +1,9 @@
 <template>
-  <h1 :style="headerStyling">Bonus Directives</h1>
-  <p v-once>{{ name }}</p>
-  <button @click="changeName">Change Name</button>
-  <p v-pre>{{ name }}</p>
+  <p :style="headingStyling">{{ firstName }} {{ lastName }}</p>
+  <p>{{ fullName }}</p>
+  <template v-for="item in items" :key="item.id">
+    <p v-if="item.price > 9999">{{ item.title }}</p>
+  </template>
 </template>
 
 <script>
@@ -10,16 +11,34 @@ export default {
   name: "App",
   data() {
     return {
-      headerStyling: {
-        color: "blue",
-        fontSize: "30px",
+      firstName: "D",
+      lastName: "M",
+      headingStyling: {
+        color: "orange",
       },
-      name: "Derrick",
+      items: [
+        {
+          id: 1,
+          title: "TV",
+          price: 10000,
+        },
+        {
+          id: 2,
+          title: "IPhone",
+          price: 1000,
+        },
+        {
+          id: 3,
+          title: 'Watch',
+          price: 100
+        }
+      ],
     };
   },
-  methods: {
-    changeName() {
-      this.name = "Sparta";
+  methods: {},
+  computed: {
+    fullName() {
+      return this.firstName + " " + this.lastName;
     },
   },
 };

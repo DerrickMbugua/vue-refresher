@@ -1,24 +1,22 @@
 <template>
- <PostList />
+  <PostList />
+  <CreatePost />
 </template>
 
 <script>
-
-import PostList from './components/PostList.vue'
-
+import PostList from "./components/PostList.vue";
+import CreatePost from "./components/CreatePost.vue";
 export default {
   name: "App",
   data() {
-    return {
-     
-    };
+    return {};
   },
   methods: {},
-  computed: {
+  computed: {},
+  components: {
+    PostList,
+    CreatePost
   },
-  components:{
-    PostList
-  }
 };
 </script>
 
@@ -31,5 +29,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 </style>

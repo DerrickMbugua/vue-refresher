@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     getPosts(){
-      axios.get("https://jsonplaceholder.typicode.com/postssd")
+      axios.get("https://jsonplaceholder.typicode.com/posts")
       .then((response) => {
         console.log(response.data)
         this.posts = response.data

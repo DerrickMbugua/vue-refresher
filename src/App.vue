@@ -1,9 +1,14 @@
 <template>
   <p :style="headingStyling">{{ firstName }} {{ lastName }}</p>
   <p>{{ fullName }}</p>
+  <button @click="changeFullName">Change fullName</button>
   <template v-for="item in items" :key="item.id">
-    <p v-if="item.price > 9999">{{ item.title }}</p>
+    <!-- <p v-if="item.price > 9999">{{ item.title }}</p> -->
+    <p>{{ item.title }} {{ item.price }}</p>
   </template>
+  <p>Total Price of items<strong>{{ totalPrice }}</strong></p>
+  <button @click="addItem">Add Item</button>
+  <p v-for="item in expensiveItem" :key="item.id">{{ item.title }}</p>
 </template>
 
 <script>
@@ -35,11 +40,39 @@ export default {
       ],
     };
   },
-  methods: {},
-  computed: {
-    fullName() {
-      return this.firstName + " " + this.lastName;
+  methods: {
+    addItem(){
+      // Create a new item object
+      const newItem = {
+        id: 4,
+        title: 'Android',
+        price: 10
+      };
+
+      this.items.push(newItem);
+      console.log('Add Item');
     },
+    changeFullName(){
+      this.fullName = 'Mary Jane';
+    }
+  },
+  computed: {
+    fullName: {
+      get(){
+        return this.firstName + " " + this.lastName;
+      },
+      set(value){
+        const names = value.split(' ');
+        this.firstName = names[0];
+        this.lastName = names[1];
+      }
+    },
+    totalPrice() {
+      return this.items.reduce((total, item) => total + item.price, 0);
+    },
+    expensiveItem(){
+      return this.items.filter((item) => item.price > 100);
+    }
   },
 };
 </script>

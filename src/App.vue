@@ -5,6 +5,11 @@
     <button @click="increaseVolume">Increase</button>
     <button @click="decreaseVolume">Decrease</button>
   </div>
+  <div>
+    <input type="text" v-model="movie" />
+    <input type="text" v-model="actor" />
+  </div>
+  <button @click="addMovie">Add Movie</button>
 </template>
 
 <script>
@@ -16,22 +21,46 @@ export default {
         color: "orange",
       },
       volume: 0,
+      movie: "Bat",
+      actor: "",
+      movieList: ["Batman","Superman"]
     };
   },
   methods: {
-    increaseVolume(){
-      return this.volume += 2;
+    increaseVolume() {
+      return (this.volume += 2);
     },
-    decreaseVolume(){
-      return this.volume -= 2;
+    decreaseVolume() {
+      return (this.volume -= 2);
+    },
+    addMovie(){
+      this.movieList.push("Wonder woman")
     }
   },
   computed: {},
   watch: {
-    volume(newVolume, oldVolume){
-      if(newVolume > oldVolume && newVolume == 10){
-        alert('High Volume!!')
+    volume(newVolume, oldVolume) {
+      if (newVolume > oldVolume && newVolume == 10) {
+        alert("High Volume!!");
       }
+    },
+    movie: {
+      handler(newValue) {
+        console.log(this.movie);
+      },
+      immediate: true,
+    },
+    actor: {
+      handler(newValue) {
+        console.log(this.actor);
+      },
+      deep: true,
+    },
+    movieList: {
+      handler(newValue){
+        console.log(this.movieList)
+      },
+      deep: true
     }
   },
 };

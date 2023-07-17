@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hello {{ message }}
+    Hello {{ message }} {{ likes }}
   </div>
 </template>
 <script>
@@ -8,12 +8,13 @@ export default {
   name: 'Greet',
   data(){
     return{
-      message: 'World!'
+      
     }
   },
-  props: [
-    'message'
-  ]
+  props: {
+    message: String,
+    likes: Number
+  }
 }
 </script>
 <style>

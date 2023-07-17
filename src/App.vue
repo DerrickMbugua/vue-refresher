@@ -1,8 +1,7 @@
 <template>
   <Header name="Mwema"/>
-  <Greet message="Guy" />
-  <Greet message="Girl" />
   <Greet :message="name" />
+  <Greet :likes="10"/>
 </template>
 
 <script>

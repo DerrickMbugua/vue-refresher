@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Popup Component</h2>
-    <button @click="$emit('close')">Close Popup</button>
+    <button @click="$emit('close','Sparta')">Close Popup</button>
   </div>
 </template>
 <script>

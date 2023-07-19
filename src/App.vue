@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>App Component</h1>
+    <p>Hello {{ name }}</p>
     <button @click="openPopup">Open Popup</button>
     <PopupVue v-show="show" @close="closePopup" />
   </div>
@@ -16,7 +17,8 @@ export default {
   },
   data() {
     return {
-      show: false
+      show: false,
+      name: "Derrick"
     };
   },
   provide() {
@@ -25,10 +27,12 @@ export default {
   },
   methods:{
     openPopup(){
-      return this.show = true;
+      this.show = true;
     },
-    closePopup(){
-      return this.show = false;
+    closePopup(name){
+      this.show = false;
+      this.name = name
+
     }
   }
 };

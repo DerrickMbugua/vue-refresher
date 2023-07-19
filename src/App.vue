@@ -4,21 +4,24 @@
     <p>Hello {{ name }}</p>
     <button @click="openPopup">Open Popup</button>
     <PopupVue v-show="show" @close="closePopup" />
+    <Input v-model="username" />
   </div>
 </template>
 
 <script>
 import PopupVue from './components/Popup.vue';
-
+import Input from './components/Input.vue';
 export default {
   name: "App",
   components: {
-   PopupVue
+   PopupVue,
+   Input
   },
   data() {
     return {
       show: false,
-      name: "Derrick"
+      name: "Derrick",
+      username: ''
     };
   },
   provide() {

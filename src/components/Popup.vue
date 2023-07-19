@@ -19,7 +19,7 @@ export default {
       }else{
         return true;
       }
-    } // event to emit when closing the popup with a value passed as parameter
+    }
   }
 }
 </script>

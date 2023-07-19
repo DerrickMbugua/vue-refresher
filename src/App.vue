@@ -4,6 +4,7 @@
   <Greet message="D" :likes="10"/>
   <Greet message="DM" :isShow="isShow"/> -->
 <ComponentA />
+<p>Name : {{ channel }}</p>
 </template>
 
 <script>
@@ -21,11 +22,14 @@ export default {
   data() {
     return {
       name: 'Sparta',
-      isShow: true
+      isShow: true,
+      channel : "Mkenyadamu"
     };
   },
-  provide: {
-    username: "Mkenyadamu"
+  provide() {
+    return{
+      username: this.channel
+    }   
   }
 };
 </script>

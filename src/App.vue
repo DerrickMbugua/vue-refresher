@@ -1,35 +1,35 @@
 <template>
-  <Header id="my-id" name="Mwema" :age="2" />
-  <!-- <Greet :message="name" />
-  <Greet message="D" :likes="10"/>
-  <Greet message="DM" :isShow="isShow"/> -->
-<ComponentA />
-<p>Name : {{ channel }}</p>
+  <div>
+    <h1>App Component</h1>
+    <button @click="openPopup">Open Popup</button>
+    <PopupVue v-show="show" @close="closePopup" />
+  </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Greet from './components/Greet.vue';
-import ComponentA from "./components/ComponentA.vue";
+import PopupVue from './components/Popup.vue';
 
 export default {
   name: "App",
   components: {
-    Header,
-    Greet,
-    ComponentA
+   PopupVue
   },
   data() {
     return {
-      name: 'Sparta',
-      isShow: true,
-      channel : "Mkenyadamu"
+      show: false
     };
   },
   provide() {
     return{
-      username: this.channel
     }   
+  },
+  methods:{
+    openPopup(){
+      return this.show = true;
+    },
+    closePopup(){
+      return this.show = false;
+    }
   }
 };
 </script>

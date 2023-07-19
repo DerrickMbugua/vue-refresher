@@ -3,17 +3,20 @@
   <!-- <Greet :message="name" />
   <Greet message="D" :likes="10"/>
   <Greet message="DM" :isShow="isShow"/> -->
+<ComponentA />
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import Greet from './components/Greet.vue';
+import ComponentA from "./components/ComponentA.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Greet
+    Greet,
+    ComponentA
   },
   data() {
     return {
@@ -21,6 +24,9 @@ export default {
       isShow: true
     };
   },
+  provide: {
+    username: "Mkenyadamu"
+  }
 };
 </script>
 

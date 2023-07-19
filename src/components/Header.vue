@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1 :style="headerStyling">Components Header</h1>
-    <p>Hello {{ name }}</p>
+    <p v-bind="$attrs">Hello {{ name }}</p>
+    <p>Hello {{ age }}</p>
   </div>
 </template>
 <script>
@@ -15,9 +16,11 @@ export default {
        }
     }
   },
-  props: [
-    'name'
-  ]
+  props: {
+    name: String,
+    age: Number,  
+  },
+  inheritAttrs: false
 }
 </script>
 <style>

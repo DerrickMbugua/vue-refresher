@@ -1,7 +1,8 @@
 <template>
-  <Header name="Mwema"/>
-  <Greet :message="name" />
-  <Greet :likes="10"/>
+  <Header id="my-id" name="Mwema" :age="2" />
+  <!-- <Greet :message="name" />
+  <Greet message="D" :likes="10"/>
+  <Greet message="DM" :isShow="isShow"/> -->
 </template>
 
 <script>
@@ -16,7 +17,8 @@ export default {
   },
   data() {
     return {
-      name: 'Sparta'
+      name: 'Sparta',
+      isShow: true
     };
   },
 };

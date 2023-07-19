@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hello {{ message }} {{ likes }}
+    Hello {{ message }} {{ likes }} {{ isShow }}
   </div>
 </template>
 <script>
@@ -12,8 +12,13 @@ export default {
     }
   },
   props: {
-    message: String,
-    likes: Number
+    message: {
+      type: String,
+      required: true,
+      default: "My Message"
+    },
+    likes: Number,
+    isShow: Boolean
   }
 }
 </script>

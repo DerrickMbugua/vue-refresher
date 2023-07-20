@@ -1,27 +1,21 @@
 <template>
   <div>
     <h1>App Component</h1>
-    <p>Hello {{ name }}</p>
-    <button @click="openPopup">Open Popup</button>
-    <PopupVue v-show="show" @close="closePopup" />
-    <Input v-model="username " />
+  <Card>Mapema ndo Best</Card>
+  <Card><h2>Mapema ndo Best</h2></Card>
   </div>
 </template>
 
 <script>
-import PopupVue from './components/Popup.vue';
-import Input from './components/Input.vue';
+import Card from './components/Card.vue';
 export default {
   name: "App",
   components: {
-   PopupVue,
-   Input
+    Card
   },
   data() {
     return {
-      show: false,
-      name: "Derrick",
-      username: ''
+ 
     };
   },
   provide() {
@@ -29,14 +23,6 @@ export default {
     }   
   },
   methods:{
-    openPopup(){
-      this.show = true;
-    },
-    closePopup(name){
-      this.show = false;
-      this.name = name
-
-    }
   }
 };
 </script>

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h2>Tab B Component</h2>
+    Header Component
   </div>
 </template>
 <script>
 export default {
-  name: 'Tab B'
+  name: 'Header'
 }
 </script>
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Header Component</p>
+    <slot></slot>
   </div>
 </template>
 <script>

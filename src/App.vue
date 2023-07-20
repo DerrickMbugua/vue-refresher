@@ -1,6 +1,11 @@
 <template>
   <p>App Component</p>
- <Header/>
+ <Header>
+  <template  v-slot:default>
+    <p>Header Component</p>
+  </template>
+ </Header>
+ 
 </template>
 
 <script>

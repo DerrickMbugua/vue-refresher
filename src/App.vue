@@ -4,7 +4,7 @@
     <p>Hello {{ name }}</p>
     <button @click="openPopup">Open Popup</button>
     <PopupVue v-show="show" @close="closePopup" />
-    <Input v-model="username" />
+    <Input v-model="username " />
   </div>
 </template>
 

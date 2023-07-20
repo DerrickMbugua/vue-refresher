@@ -1,29 +1,37 @@
 <template>
-  <div>
+  <!-- <div>
     <h1>App Component</h1>
-  <Card>Mapema ndo Best</Card>
-  <Card><h2>Mapema ndo Best</h2></Card>
-  </div>
+    <Card></Card>
+    <Card>Mapema ndo Best</Card>
+    <Card><h2>Mapema ndo Best</h2></Card>
+  </div> -->
+  <Card>
+    <template v-slot:header>
+      <h3>Header</h3>
+       </template>
+       <template v-slot:default>
+      <h3>Default</h3>
+       </template>
+       <template v-slot:footer>
+      <h3>Footer</h3>
+       </template>
+  </Card>
 </template>
 
 <script>
-import Card from './components/Card.vue';
+import Card from "./components/Card.vue";
 export default {
   name: "App",
   components: {
-    Card
+    Card,
   },
   data() {
-    return {
- 
-    };
+    return {};
   },
   provide() {
-    return{
-    }   
+    return {};
   },
-  methods:{
-  }
+  methods: {},
 };
 </script>
 

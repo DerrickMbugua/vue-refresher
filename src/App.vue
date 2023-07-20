@@ -1,35 +1,42 @@
 <template>
-  <Header id="my-id" name="Mwema" :age="2" />
-  <!-- <Greet :message="name" />
-  <Greet message="D" :likes="10"/>
-  <Greet message="DM" :isShow="isShow"/> -->
-<ComponentA />
-<p>Name : {{ channel }}</p>
+  <div>
+    <h1>App Component</h1>
+  </div>
+  <div style="display: block;">
+    <button @click="activeTab = 'TabA'">Tab A</button>
+    <button @click="activeTab = 'TabB'">Tab B</button>
+    <button @click="activeTab = 'TabC'">Tab C</button>
+  </div>
+  <!-- <div>
+    <TabA v-if="activeTab === 'TabA'"/>
+    <TabB v-if="activeTab === 'TabB'"/>
+    <TabC v-if="activeTab === 'TabC'"/>
+  </div> -->
+  <component :is="activeTab" />
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Greet from './components/Greet.vue';
-import ComponentA from "./components/ComponentA.vue";
+import TabA from "./components/TabA.vue";
+import TabB from "./components/TabB.vue";
+import TabC from "./components/TabC.vue";
 
 export default {
   name: "App",
   components: {
-    Header,
-    Greet,
-    ComponentA
+    TabA,
+    TabB,
+    TabC,
   },
   data() {
     return {
-      name: 'Sparta',
-      isShow: true,
-      channel : "Mkenyadamu"
+     activeTab: 'TabA'
     };
   },
   provide() {
-    return{
-      username: this.channel
-    }   
+    return {};
+  },
+  methods:{
+  
   }
 };
 </script>
@@ -42,29 +49,5 @@ export default {
   /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
-}
-abel {
-  font-weight: bold;
-  display: flex;
-  margin-bottom: 5px;
-}
-input + label {
-  font-weight: bold;
-  display: inline-flex;
-  margin-right: 20px;
-}
-input[type="text"],
-textarea,
-select {
-  display: block;
-  width: 400px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 </style>

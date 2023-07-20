@@ -16,14 +16,23 @@
       <h3>Footer</h3>
        </template>
   </Card>
+
+  <List>
+    <template v-slot:default="slotProps">
+      <h3>{{ slotProps.firstName }} {{ slotProps.lastName }}</h3>
+      <h3>{{ slotProps.lastName }} {{ slotProps.firstName }} </h3>
+    </template>
+  </List>
 </template>
 
 <script>
 import Card from "./components/Card.vue";
+import List from "./components/List.vue";
 export default {
   name: "App",
   components: {
     Card,
+    List
   },
   data() {
     return {};

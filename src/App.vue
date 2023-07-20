@@ -12,7 +12,10 @@
     <TabB v-if="activeTab === 'TabB'"/>
     <TabC v-if="activeTab === 'TabC'"/>
   </div> -->
-  <component :is="activeTab" />
+  <keep-alive>
+    <component :is="activeTab" />
+  </keep-alive>
+  
 </template>
 
 <script>

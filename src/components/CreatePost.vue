@@ -1,51 +1,48 @@
 <template>
   <div>
-    <form @submit.prevent="submitForm">
+    <form @submit.prevent="createPost">
       <div>
-        <label for="userId">User ID</label>
-        <input type="number" id="userId" v-model="formData.userId" />
+        <label>Title: </label>
+        <input type="text" v-model="formData.title" />
       </div>
       <div>
-        <label for="title">Title</label>
-        <input type="text" id="title" v-model="formData.title" />
+        <label>Body: </label>
+        <input type="text" v-model="formData.body" />
       </div>
       <div>
-        <label for="body">Body</label>
-        <textarea v-model="formData.body"></textarea>
+        <label>User ID: </label>
+        <input type="number" v-model="formData.userId" />
       </div>
       <div>
-        <button>Submit</button>
+        <button>Save</button>
       </div>
     </form>
   </div>
 </template>
 <script>
-import axios from 'axios'
-export default {
-  name: 'CreatePost',
-  data(){
-    return{
+import axios from 'axios';
+export default { 
+  data() {
+    return {
       formData: {
-        userId: '',
-        title: '',
-        body: ''
-      }
-    }
+        title: "",
+        body: "",
+        userId: ""
+      },
+    };
   },
-  methods:{
-    submitForm(){
-      console.log(this.formData);
+  methods: {
+    createPost() {
       axios.post("https://jsonplaceholder.typicode.com/posts", this.formData)
       .then((response) => {
-        console.log(response.data)
+        console.log(response.data);
       })
       .catch((error) => {
-        console.log(error.message)
+        console.log(error);
       });
-    }
-  }
-}
+    },
+  },
+};
 </script>
-<style>
-  
+<style lang="">
 </style>

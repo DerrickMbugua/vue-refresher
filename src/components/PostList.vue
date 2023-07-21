@@ -2,37 +2,35 @@
   <div>
     <button @click="getPosts">Load Posts</button>
   </div>
-  <p v-if="errorMsg">{{ errorMsg }}</p>
-  <template v-for="post in posts" :key="post.id"> 
+  <div v-for="post in posts" :key="post.id">
+    <p>{{ post.id }}</p>
     <p>{{ post.title }}</p>
-  </template>
+  </div>
 </template>
 <script>
-import axios from 'axios'
-export default {
+import axios from "axios";
 
-  name: 'PostList',
-  data(){
-    return{
+export default {
+  name: "PostList",
+  data() {
+    return {
       posts: [],
-      errorMsg: ''
-    }
+    };
   },
   methods: {
-    getPosts(){
-      axios.get("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => {
-        console.log(response.data)
-        this.posts = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-        this.errorMsg = error.message
-      })
-    }
-  }
-}
+    getPosts() {
+      axios
+        .get("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => {
+          console.log(response.data);
+          this.posts = response.data;
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    },
+  },
+};
 </script>
-<style>
-  
+<style scoped>
 </style>

@@ -1,9 +1,11 @@
 <template>
-<Child />
+<ComponentA />
+<ComponentB />
 </template>
 
 <script>
-import Child from './components/Child.vue';
+import ComponentA from './components/ComponentA.vue';
+import ComponentB from './components/ComponentB.vue';
 export default {
   name: "App",
   data() {
@@ -12,7 +14,8 @@ export default {
   methods: {},
   computed: {},
   components: {
-    Child
+  ComponentA,
+  ComponentB
   },
 };
 </script>

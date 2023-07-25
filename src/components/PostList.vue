@@ -17,6 +17,9 @@ export default {
       posts: [],
     };
   },
+  created() {
+    this.getPosts()
+  },
   methods: {
     getPosts() {
       axios
@@ -30,6 +33,7 @@ export default {
         });
     },
   },
+ 
 };
 </script>
 <style scoped>

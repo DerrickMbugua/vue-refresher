@@ -1,11 +1,9 @@
 <template>
-<Parent />
-<PostList />
+<Child />
 </template>
 
 <script>
-import Parent from './components/Parent.vue';
-import PostList from './components/PostList.vue';
+import Child from './components/Child.vue';
 export default {
   name: "App",
   data() {
@@ -14,7 +12,7 @@ export default {
   methods: {},
   computed: {},
   components: {
-    Parent, PostList
+    Child
   },
 };
 </script>

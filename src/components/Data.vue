@@ -1,23 +1,20 @@
 <template>
   <div>
-    <h2>Hello {{ state.firstName }}</h2>
-    <button @click="state.count++">Count {{ state.count }}</button>
+    <h2>Hello {{ firstName }}</h2>
+    <button @click="count++">Count {{ count }}</button>
   </div>
 </template>
 <script>
-import { ref,reactive } from "vue";
+import { ref, reactive, toRefs } from "vue";
 
 export default {
   name: "Data",
   setup() {
-
-    const state = reactive({ 
+    const state = reactive({
       count: 0,
-      firstName: 'Derrick'
-     })
-    return{
-      state
-    }
+      firstName: "Derrick",
+    });
+    return toRefs(state);
   },
 };
 </script>

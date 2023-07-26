@@ -19,21 +19,23 @@ export default {
       count: 0
     });
 
-    const counter = ref(0);
+    function changeName(){
+      state.name = "Derrick";
+      state.last = "Sam"
+    }
 
     function increment(){
       state.count++
     }
+
+    const counter = ref(0);
 
     function decrement(){
       console.log("CLick button");
       counter.value--;
     }
 
-    function changeName(){
-      state.name = "Derrick";
-      state.last = "Sam"
-    }
+  
 
     return {
       name: state.name,

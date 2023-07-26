@@ -1,9 +1,9 @@
 <template>
-<Methods />
+
 </template>
 
 <script>
-import Methods from './components/Methods.vue';
+
 export default {
   name: "App",
   data() {
@@ -12,7 +12,6 @@ export default {
   methods: {},
   computed: {},
   components: {
- Methods
   },
 };
 </script>

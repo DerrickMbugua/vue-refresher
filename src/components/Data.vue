@@ -14,8 +14,14 @@ export default {
       count: 0,
       firstName: "Derrick",
     });
+
+    setTimeout(() => {
+      state.count = 10;
+      state.firstName = "Mwema"
+    },2000);
+
     return toRefs(state);
-  },
+  }
 };
 </script>
 <style scoped>

@@ -11,7 +11,10 @@ export default {
   name: "Data",
   setup() {
     const firstName = ref("Derrick");
+    console.log(firstName);
+    console.log(firstName.value);
     const counter = ref(0);
+    counter.value += 1;
     return{
       firstName, counter
     }

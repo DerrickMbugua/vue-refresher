@@ -1,9 +1,9 @@
 <template>
-
+<Computed />
 </template>
 
 <script>
-
+import Computed from './components/Computed.vue';
 export default {
   name: "App",
   data() {
@@ -12,6 +12,7 @@ export default {
   methods: {},
   computed: {},
   components: {
+    Computed
   },
 };
 </script>

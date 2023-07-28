@@ -1,9 +1,9 @@
 <template>
-<Computed />
+<Watchers />
 </template>
 
 <script>
-import Computed from './components/Computed.vue';
+import Watchers from './components/Watchers.vue';
 export default {
   name: "App",
   data() {
@@ -12,7 +12,7 @@ export default {
   methods: {},
   computed: {},
   components: {
-    Computed
+Watchers
   },
 };
 </script>

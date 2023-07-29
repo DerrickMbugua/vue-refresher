@@ -1,9 +1,9 @@
 <template>
-<Watchers />
+  <Parent />
 </template>
 
 <script>
-import Watchers from './components/Watchers.vue';
+import Parent from "./components/ProvideParent.vue";
 export default {
   name: "App",
   data() {
@@ -12,7 +12,7 @@ export default {
   methods: {},
   computed: {},
   components: {
-Watchers
+    Parent,
   },
 };
 </script>
